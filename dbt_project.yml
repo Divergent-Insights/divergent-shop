@@ -9,12 +9,12 @@ seed-paths: ["seeds"]
 test-paths: ["tests"]
 analysis-paths: ["analysis"]
 macro-paths: ["macros"]
-packages-install-path: dbt_packages
+packages-install-path: packages
 
 target-path: "target"
 clean-targets:
     - "target"
-    - "dbt_packages"
+    - "packages"
     - "logs"
 
 snapshots:

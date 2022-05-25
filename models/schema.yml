@@ -8,8 +8,10 @@ models:
       - name: customer_id
         description: This is a unique identifier for a customer
         tests:
-          - unique
-          - not_null
+          - unique:
+              tags: ['dq:consistency']
+          - not_null:
+              tags: ['dq:completeness']
 
       - name: first_name
         description: Customer's first name. PII.
@@ -42,7 +44,8 @@ models:
       - name: customer_id
         description: Foreign key to the customers table
         tests:
-          - not_null
+          - not_null:
+              tags: ['dq:timeliness', 'my_tag']
           - relationships:
               to: ref('customers')
               field: customer_id
@@ -74,7 +77,8 @@ models:
       - name: bank_transfer_amount
         description: Amount of the order (AUD) paid for by bank transfer
         tests:
-          - not_null
+          - not_null:
+              tags: ['dq:accuracy']
 
       - name: gift_card_amount
         description: Amount of the order (AUD) paid for by gift card
