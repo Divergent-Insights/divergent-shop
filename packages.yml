@@ -1,0 +1,6 @@
+packages:
+  - package: Divergent-Insights/dbt_dataquality
+    version: 0.3.5
+
+#  - git: "https://github.com/Divergent-Insights/dbt-dataquality.git"
+#    revision: main

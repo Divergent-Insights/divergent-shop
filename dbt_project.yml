@@ -1,0 +1,27 @@
+name: 'divergent_shop'
+version: '0.1.0'
+config-version: 2
+require-dbt-version: ">=1.0.0"
+profile: 'default'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+analysis-paths: ["analysis"]
+macro-paths: ["macros"]
+packages-install-path: dbt_packages
+
+target-path: "target"
+clean-targets:
+    - "target"
+    - "dbt_packages"
+    - "logs"
+
+snapshots:
+  divergent_shop:
+    +target_schema: "{{ target.schema }}"
+
+#tests:
+#  +store_failures: true  # all tests
+#    divergent_shop:
+#        +store_failures: true
